@@ -151,6 +151,7 @@ short HMC5883L::setScale(float gauss) {
     // Setting is in the top 3 bits of the register.
     regValue = regValue << 5;
     write(CONFIGURATION_REGISTERB, regValue);
+    return 0 ;
 }
 
 short HMC5883L::setAverageSamples(uint8_t mode)
@@ -170,10 +171,12 @@ short HMC5883L::setAverageSamples(uint8_t mode)
     }
 
     write(CONFIGURATION_REGISTERA, regValue);
+    return 0 ;
 }
 
 short HMC5883L::setMeasurementMode(uint8_t mode) {
     write(MODE_REGISTER, mode);
+    return 0 ;
 }
 
 void HMC5883L::write(short address, short data) {
